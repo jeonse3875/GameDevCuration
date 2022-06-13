@@ -1,7 +1,15 @@
 <div class="entry">
     {% if tag.children.all %}
         <span class="label">
-            <a href="{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}">{{ tag.name }} ></a>
+            <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}'">
+                {% if tag.thumbnail %}
+                    <img class="node-image" src="{{ tag.thumbnail.url }}">
+                {% else %}
+                    <img class="node-image">
+                {% endif %}
+                <div class="node-layer"></div>
+                <div class="node-text">{{ tag.name }} > </div>
+            </button>
         </span>
             {% if tag.id in sel_tag %}
             <div class="branch">
@@ -15,7 +23,15 @@
         
     {% else %}
         <span class="label">
-            <a href="{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}">{{ tag.name }}</a>
+            <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}'">
+                {% if tag.thumbnail %}
+                    <img class="node-image" src="{{ tag.thumbnail.url }}">
+                {% else %}
+                    <img class="node-image">
+                {% endif %}
+                <div class="node-layer"></div>
+                <div class="node-text">{{ tag.name }}</div>
+            </button>
         </span>   
     {% endif %}
 </div>

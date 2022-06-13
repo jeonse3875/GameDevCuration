@@ -16,7 +16,11 @@
 
 <div id="wrapper">
     <span class="label">
-        <a href="{% url 'devinfo' %}?game_id=1">{{ game.name }}</a>
+        <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id=1'">
+            <img class="node-image" src="{{ game.thumbnail.url }}">
+            <div class="node-layer"></div>
+            <div class="node-text">{{ game.name }}</div>
+        </button>
     </span>
     {% if tags %}
         <div class="branch">
