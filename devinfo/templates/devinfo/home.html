@@ -2,23 +2,27 @@
 
 {% block content %}
 <a href="{% url 'devinfo' %}?game_id=1">Game1</a>
-<div id="wrapper"><span class="label">Root</span>
+
+<!-- <div id="wrapper"><span class="label">Root</span>
     <div class="branch">
         <div class="entry"><span class="label">Entry-1</span>
             <div class="branch">
                 <div class="entry"><span class="label">Entry-1-1</span></div>
-                <div class="entry"><span class="label">Entry-1-2</span></div>
             </div>
         </div>
         <div class="entry"><span class="label">Entry-2</span></div>
     </div>
+</div> -->
+
+<div id="wrapper"><span class="label">{{ game.name }}</span>
+    {% if tags %}
+        <div class="branch">
+            {% for tag in tags %}
+                {%include "devinfo/treenode.html" %}
+            {% endfor %}
+        </div>
+    {% else %}
+        
+    {% endif %}
 </div>
-
-{% for tag in tags %}
-    <div>
-        <p>{{ tag.name }}</p>
-    </div>
-{% endfor %}
-
-
 {% endblock %}

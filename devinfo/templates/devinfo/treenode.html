@@ -1,0 +1,11 @@
+<div class="entry"><span class="label">{{ tag.name }}</span>
+    {% if tag.children.all %}
+        <div class="branch">
+            {% for tag in tag.children.all %}
+                {%include "devinfo/treenode.html" %}
+            {% endfor %}
+        </div>
+    {% else %}
+        
+    {% endif %}
+</div>

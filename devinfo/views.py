@@ -15,7 +15,7 @@ class DevInformationView(View):
             return render(request,'devinfo/home.html')
         
         templateData = {}
-        templateData["game_id"] = targetGame.id
+        templateData["game"] = targetGame
         templateData["tags"] = targetGame.tags.all()
 
         print(templateData)
