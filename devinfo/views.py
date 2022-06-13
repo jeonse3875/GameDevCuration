@@ -6,4 +6,4 @@ from django.views.generic import View
 class DevInformationView(View):
     def get(self, request):
         # 뷰 로직 작성
-        return render(request,'home.html')
+        return render(request,'devinfo/home.html')
