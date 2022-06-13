@@ -1,35 +1,49 @@
 {% extends 'devinfo/base.html' %}
 
 {% block content %}
-<a href="{% url 'devinfo' %}?game_id=1">Game1</a>
-
-<!-- <div id="wrapper"><span class="label">Root</span>
-    <div class="branch">
-        <div class="entry"><span class="label">Entry-1</span>
-            <div class="branch">
-                <div class="entry"><span class="label">Entry-1-1</span></div>
+<div class="content-parent">
+    <div class="content-child1">
+        <p class="game-list-title">게임 선택</p>
+        {% for g in games %}
+            <div class="game-block">
+                <button class="game-button" type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{g.id}}'">
+                    {% if g.thumbnail %}
+                        <img class="node-image" src="{{ g.thumbnail.url }}">
+                    {% else %}
+                        <img class="node-image">
+                    {% endif %}
+                    <div class="node-layer"></div>
+                    <div class="node-text">{{ g.name }}</div>
+                </button>
             </div>
-        </div>
-        <div class="entry"><span class="label">Entry-2</span></div>
-    </div>
-</div> -->
-
-<div id="wrapper">
-    <span class="label">
-        <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id=1'">
-            <img class="node-image" src="{{ game.thumbnail.url }}">
-            <div class="node-layer"></div>
-            <div class="node-text">{{ game.name }}</div>
-        </button>
-    </span>
-    {% if tags %}
-        <div class="branch">
-            {% for tag in tags %}
-                {%include "devinfo/treenode.html" %}
-            {% endfor %}
-        </div>
-    {% else %}
+        {% endfor %}
         
-    {% endif %}
+    </div>
+    <div class="content-child2">
+        <div id="wrapper">
+            {% if game %}
+                <span class="label">
+                    <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{game.id}}'">
+                        {% if game.thumbnail %}
+                            <img class="node-image" src="{{ game.thumbnail.url }}">
+                        {% else %}
+                            <img class="node-image">
+                        {% endif %}
+                        <div class="node-layer"></div>
+                        <div class="node-text">{{ game.name }}</div>
+                    </button>
+                </span>
+            {% endif %}
+            {% if tags %}
+                <div class="branch">
+                    {% for tag in tags %}
+                        {%include "devinfo/treenode.html" %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}

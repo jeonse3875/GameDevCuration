@@ -9,13 +9,14 @@ class DevInformationView(View):
         game_id = int(request.GET.get('game_id',0))
         cur_tag = int(request.GET.get('cur_tag',0))
         sel_tag = list(map(int, request.GET.getlist('sel_tag',[])))
-        
+        templateData = {}
+        templateData["games"] = Game.objects.all()
 
         try:
             targetGame = Game.objects.get(id = game_id)
         except Game.DoesNotExist:
             # 게임 선택 페이지 띄우기
-            return render(request,'devinfo/home.html')
+            return render(request,'devinfo/home.html', templateData)
 
         if cur_tag in sel_tag:
             sel_tag.remove(cur_tag)
@@ -27,7 +28,6 @@ class DevInformationView(View):
         for tag_id in sel_tag:
             sel_tag_url += f"&sel_tag={tag_id}"
 
-        templateData = {}
         templateData["game"] = targetGame
         templateData["tags"] = targetGame.tags.all()
         templateData["sel_tag"] = sel_tag

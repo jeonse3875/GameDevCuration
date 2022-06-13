@@ -1,7 +1,7 @@
 <div class="entry">
     {% if tag.children.all %}
         <span class="label">
-            <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}'">
+            <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{game.id}}&cur_tag={{ tag.id }}{{ sel_tag_url }}'">
                 {% if tag.thumbnail %}
                     <img class="node-image" src="{{ tag.thumbnail.url }}">
                 {% else %}
@@ -23,7 +23,7 @@
         
     {% else %}
         <span class="label">
-            <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}'">
+            <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{game.id}}&cur_tag={{ tag.id }}{{ sel_tag_url }}'">
                 {% if tag.thumbnail %}
                     <img class="node-image" src="{{ tag.thumbnail.url }}">
                 {% else %}

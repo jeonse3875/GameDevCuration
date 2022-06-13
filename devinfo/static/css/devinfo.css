@@ -32,6 +32,44 @@ button {
   background-color: transparent;
 }
 
+.title-text {
+  color: white;
+}
+
+.content-parent {
+  display: flex;
+}
+
+.content-child1 {
+  text-align: left;
+  flex: 15;
+}
+
+.content-child2 {
+  flex: 100;
+}
+
+.game-list-title {
+  text-align: left;
+  margin-left: 20px;
+  font-size: large;
+}
+
+.game-block {
+  width: 120px;
+  height: 60px;
+  border: 2px solid #eee9dc;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.game-button {
+  width: 100%;
+  height: 100%;
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
   }
@@ -42,7 +80,7 @@ button {
     padding: 50px;
     color: #eee9dc;
     font: 16px Verdana, sans-serif;
-    background: #2e6ba7;
+    background: #8cb6e0;
     user-select: none;
   }
   
