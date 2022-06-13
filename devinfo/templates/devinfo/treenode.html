@@ -1,11 +1,21 @@
-<div class="entry"><span class="label">{{ tag.name }}</span>
+<div class="entry">
     {% if tag.children.all %}
-        <div class="branch">
-            {% for tag in tag.children.all %}
-                {%include "devinfo/treenode.html" %}
-            {% endfor %}
-        </div>
-    {% else %}
+        <span class="label">
+            <a href="{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}">{{ tag.name }} ></a>
+        </span>
+            {% if tag.id in sel_tag %}
+            <div class="branch">
+                {% for tag in tag.children.all %}
+                    {%include "devinfo/treenode.html" %}
+                {% endfor %}
+            </div>
+            {% else %}
+
+            {% endif %}
         
+    {% else %}
+        <span class="label">
+            <a href="{% url 'devinfo' %}?game_id=1&cur_tag={{ tag.id }}{{ sel_tag_url }}">{{ tag.name }}</a>
+        </span>   
     {% endif %}
 </div>
