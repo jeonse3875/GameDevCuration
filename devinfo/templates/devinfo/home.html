@@ -1,5 +1,24 @@
 {% extends 'devinfo/base.html' %}
 
 {% block content %}
-    <h1>개발 정보 모음</h1>
+<a href="{% url 'devinfo' %}?game_id=1">Game1</a>
+<div id="wrapper"><span class="label">Root</span>
+    <div class="branch">
+        <div class="entry"><span class="label">Entry-1</span>
+            <div class="branch">
+                <div class="entry"><span class="label">Entry-1-1</span></div>
+                <div class="entry"><span class="label">Entry-1-2</span></div>
+            </div>
+        </div>
+        <div class="entry"><span class="label">Entry-2</span></div>
+    </div>
+</div>
+
+{% for tag in tags %}
+    <div>
+        <p>{{ tag.name }}</p>
+    </div>
+{% endfor %}
+
+
 {% endblock %}
