@@ -23,7 +23,7 @@
         <div id="wrapper">
             {% if game %}
                 <span class="label">
-                    <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{game.id}}'">
+                    <button type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{game.id}}&is_show_all=1'">
                         {% if game.thumbnail %}
                             <img class="node-image" src="{{ game.thumbnail.url }}">
                         {% else %}

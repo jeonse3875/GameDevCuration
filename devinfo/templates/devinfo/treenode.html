@@ -11,7 +11,7 @@
                 <div class="node-text">{{ tag.name }} > </div>
             </button>
         </span>
-            {% if tag.id in sel_tag %}
+            {% if tag.id in sel_tag or is_show_all%}
             <div class="branch">
                 {% for tag in tag.children.all %}
                     {%include "devinfo/treenode.html" %}
