@@ -38,6 +38,7 @@ button {
 
 .content-parent {
   display: flex;
+  margin-bottom: 30px;
 }
 
 .content-child1 {
@@ -81,7 +82,7 @@ button {
     color: #eee9dc;
     font: 16px Verdana, sans-serif;
     background: #8cb6e0;
-    user-select: none;
+    user-select: auto;
   }
   
   #wrapper {

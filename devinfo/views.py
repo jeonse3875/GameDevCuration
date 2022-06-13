@@ -33,5 +33,10 @@ class DevInformationView(View):
         templateData["sel_tag"] = sel_tag
         templateData["sel_tag_url"] = sel_tag_url
 
+        try:
+            templateData["cur_tag"] = Tag.objects.get(id=cur_tag)
+        except Tag.DoesNotExist:
+            pass
+        
         #print(templateData)
         return render(request,'devinfo/home.html', templateData)

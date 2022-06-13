@@ -3,7 +3,7 @@
 {% block content %}
 <div class="content-parent">
     <div class="content-child1">
-        <p class="game-list-title">게임 선택</p>
+        <p class="game-list-title">목표 게임</p>
         {% for g in games %}
             <div class="game-block">
                 <button class="game-button" type="button" onclick="location.href='{% url 'devinfo' %}?game_id={{g.id}}'">
@@ -45,5 +45,12 @@
             {% endif %}
         </div>
     </div>
+</div>
+
+<hr/>
+<div>
+    <h2>{{cur_tag.name}}</h2>
+    <br>
+    <p>{{cur_tag.description|linebreaks}}</p>
 </div>
 {% endblock %}

@@ -13,6 +13,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=50)
     thumbnail = models.ImageField(upload_to="thumbnail",null=True,blank=True)
     children = models.ManyToManyField('Tag', blank=True)
+    description = models.TextField(max_length=500,null=False,blank=True)
     
     def __str__(self):
         return self.name
